@@ -57,7 +57,7 @@ export const createSearchQuery = ({
 };
 export const getData = (queries) => {
   try {
-    fetch(`${baseUrl}${queries}`)
+    return fetch(`${baseUrl}${queries}`)
       .then((resp) => {
         if (resp.ok) return resp.json();
       })
