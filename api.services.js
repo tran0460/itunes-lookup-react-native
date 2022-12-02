@@ -30,7 +30,7 @@ export const getData = (queries) => {
         if (resp.ok) return resp.json();
       })
       .then((data) => {
-        console.log(data.results.length);
+        return data.results;
       });
   } catch (err) {
     console.log(err);
