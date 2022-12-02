@@ -14,7 +14,7 @@ const Tab = createBottomTabNavigator();
 // Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
   return (
-    <AppContext.Provider value={{ baseUrl, createSearchQuery, getData }}>
+    <AppContext.Provider value={{}}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{

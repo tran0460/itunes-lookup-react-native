@@ -3,9 +3,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
 import { useState, useEffect } from "react";
-import { useAppContext } from "../AppContext";
+import { createSearchQuery, getData } from "../api.services";
 const HomeScreen = () => {
-  const { createSearchQuery, baseUrl, getData } = useAppContext();
   return (
     <SafeAreaView style={styles.screenContainer}>
       <Text>HomeScreen</Text>
@@ -16,7 +15,7 @@ const HomeScreen = () => {
             country: "ca",
             limit: "1",
           });
-          getData(baseUrl, queries);
+          getData(queries);
         }}>
         <Text>HomeScreen</Text>
       </TouchableOpacity>
