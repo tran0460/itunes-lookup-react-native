@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     height: 40,
     borderColor: "#CCCCCC",
     borderWidth: 1,
-    paddingLeft: 15,
-    margin: 10,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    width: "100%",
   },
 });
