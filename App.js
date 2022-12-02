@@ -1,27 +1,30 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import DiscoverScreen from "./screens/DiscoverScreen";
-
+import { AppContext } from "./AppContext";
 /**
+ * EXPO PACKAGES:
  * react-native-safe-area-context
  */
 const Tab = createBottomTabNavigator();
 
+// Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Discover" component={DiscoverScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AppContext.Provider value={{}}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Discover" component={DiscoverScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
   );
 }
 
