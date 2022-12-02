@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "mad9135-p2-react-native-final",
+    "slug": "mad9135-p2-react-native-final",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
