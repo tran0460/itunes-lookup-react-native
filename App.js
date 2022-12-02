@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -7,13 +6,37 @@ import HomeScreen from "./screens/HomeScreen";
 import DiscoverScreen from "./screens/DiscoverScreen";
 import { AppContext } from "./AppContext";
 /**
+ * EXPO PACKAGES:
  * react-native-safe-area-context
  */
 const Tab = createBottomTabNavigator();
 
+// Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
+  const baseUrl = "https://itunes.apple.com/search";
+  const createSearchQuery = (queries) => {
+    //   term = "",
+    //   country = "",
+    //   media = "",
+    //   entity = "",
+    //   attribute = "",
+    //   callback = "",
+    //   limit = "",
+    //   lang = "",
+    //   version = "",
+    //   explicit = "",
+    const queryString = "";
+    for (const query in queries) {
+      if (query === "term") {
+        queries.concat(`?${query}=${queries[query].replace(" ", "+")}`);
+      } else {
+        queries.concat(`?${query}=${queries[query]}`);
+      }
+    }
+    return queryString;
+  };
   return (
-    <AppContext.Provider value={{}}>
+    <AppContext.Provider value={{ baseUrl, createSearchQuery }}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
