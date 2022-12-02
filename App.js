@@ -13,30 +13,46 @@ const Tab = createBottomTabNavigator();
 
 // Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
-  const baseUrl = "https://itunes.apple.com/search";
-  const createSearchQuery = (queries) => {
-    //   term = "",
-    //   country = "",
-    //   media = "",
-    //   entity = "",
-    //   attribute = "",
-    //   callback = "",
-    //   limit = "",
-    //   lang = "",
-    //   version = "",
-    //   explicit = "",
-    const queryString = "";
-    for (const query in queries) {
-      if (query === "term") {
-        queries.concat(`?${query}=${queries[query].replace(" ", "+")}`);
-      } else {
-        queries.concat(`?${query}=${queries[query]}`);
-      }
+  const baseUrl = "https://itunes.apple.com/search?";
+  const createSearchQuery = ({
+    term = "",
+    country = "",
+    media = "",
+    entity = "",
+    attribute = "",
+    callback = "",
+    limit = "",
+    lang = "",
+    version = "",
+    explicit = "",
+  }) => {
+    const termQuery = term ? `term=${term.replace(" ", "+")}` : "";
+    const countryQuery = country ? `&country=${country}` : "";
+    const mediaQuery = media ? `&media=${media}` : "";
+    const entityQuery = entity ? `&entity=${entity}` : "";
+    const attributesQuery = attribute ? `&attributes=${attribute}` : "";
+    const callbackQuery = callback ? `&callBack=${callback}` : "";
+    const limitQuery = limit ? `&limit=${limit}` : "";
+    const languageQuery = lang ? `&language=${lang}` : "";
+    const versionQuery = version ? `&version=${version}` : "";
+    const explicitQuery = explicit ? `&explicit=${explicit}` : "";
+    return `${termQuery}${countryQuery}${mediaQuery}${languageQuery}${versionQuery}${explicitQuery}${entityQuery}${attributesQuery}${callbackQuery}${limitQuery}`;
+  };
+  const getData = (baseUrl, queries) => {
+    try {
+      fetch(`${baseUrl}${queries}`)
+        .then((resp) => {
+          if (resp.ok) return resp.json();
+        })
+        .then((data) => {
+          console.log(data.results.length);
+        });
+    } catch (err) {
+      console.log(err);
     }
-    return queryString;
   };
   return (
-    <AppContext.Provider value={{ baseUrl, createSearchQuery }}>
+    <AppContext.Provider value={{ baseUrl, createSearchQuery, getData }}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
