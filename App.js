@@ -1,11 +1,11 @@
-import { StatusBar } from "expo-status-bar";
+import { useState, useEffect } from "react";
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import DiscoverScreen from "./screens/DiscoverScreen";
-
+import { AppContext } from "./AppContext";
 /**
  * react-native-safe-area-context
  */
@@ -13,15 +13,17 @@ const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-        }}>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Discover" component={DiscoverScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <AppContext.Provider value={{}}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            headerShown: false,
+          }}>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Discover" component={DiscoverScreen} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
   );
 }
 
