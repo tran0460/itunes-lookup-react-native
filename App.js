@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
-import DiscoverScreen from "./screens/DiscoverScreen";
+import DiscoverNavigator from "./Navigators/DiscoverNavigator";
 import { AppContext } from "./AppContext";
 
 /**
@@ -24,16 +24,14 @@ export default function App() {
       value={{
         searchResults,
         setSearchResults,
-      }}
-    >
+      }}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-          }}
-        >
+          }}>
           <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Discover" component={DiscoverScreen} />
+          <Tab.Screen name="Discover" component={DiscoverNavigator} />
         </Tab.Navigator>
       </NavigationContainer>
     </AppContext.Provider>
