@@ -4,6 +4,7 @@ import React from "react";
 import { styles } from "../Styles";
 import { useState, useEffect, useCallback } from "react";
 import { createSearchQuery, getData } from "../api.services";
+import CardItem from "../components/CardItem";
 const HomeScreen = () => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
@@ -32,7 +33,7 @@ const HomeScreen = () => {
 
   const renderAlbumsItem = useCallback(
     ({ item }) => {
-      return <Text>{item.collectionName}**</Text>;
+      return <CardItem data={item} type="album" />;
     },
     [albumsData]
   );
