@@ -6,10 +6,7 @@ const CardItem = ({ data, type }) => {
   const upScaledImage = data.artworkUrl100.replace("100x100bb", "400x400bb");
   return (
     <View style={styles.cardContainer}>
-      <Image
-        style={{ width: "100%", height: 200 }}
-        source={{ uri: upScaledImage }}
-      />
+      <Image style={styles.cardImage} source={{ uri: upScaledImage }} />
       <Text style={styles.cardTitle}>{data.collectionName}</Text>
     </View>
   );
@@ -20,6 +17,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     maxWidth: 200,
+    marginRight: 20,
+  },
+  cardImage: {
+    width: "100%",
+    height: 200,
+    borderRadius: 4,
+    marginBottom: 12,
   },
 });
 
