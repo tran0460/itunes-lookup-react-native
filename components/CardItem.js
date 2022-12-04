@@ -5,8 +5,6 @@ const CardItem = ({ data, type }) => {
   const upScaledImage400 = data.artworkUrl100.replace("100x100bb", "400x400bb");
   const upScaledImage600 = data.artworkUrl100.replace("100x100bb", "600x600bb");
   const upScaledImage800 = data.artworkUrl100.replace("100x100bb", "800x800bb");
-
-  console.log(data);
   switch (type) {
     case "album":
       return (
@@ -15,7 +13,11 @@ const CardItem = ({ data, type }) => {
             style={[styles.cardImage, styles.albumImage]}
             source={{ uri: upScaledImage400 }}
           />
-          <Text style={styles.cardTitle}>{data.collectionName}</Text>
+          <Text
+            lineBreakMode="tail"
+            style={[styles.cardTitle, styles.albumTitle]}>
+            {data.collectionName}
+          </Text>
         </View>
       );
     case "movie":
@@ -26,7 +28,9 @@ const CardItem = ({ data, type }) => {
             style={[styles.cardImage, styles.movieImage]}
             source={{ uri: upScaledImage400 }}
           />
-          <Text style={styles.cardTitle}>{data.trackName}</Text>
+          <Text style={[styles.cardTitle, styles.movieTitle]}>
+            {data.trackName}
+          </Text>
         </View>
       );
   }
@@ -37,12 +41,15 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     marginRight: 20,
+    marginBottom: 16,
   },
   albumCard: {
-    width: 200,
+    width: 150,
+    height: 210,
   },
   movieCard: {
     width: 200,
+    height: 340,
   },
   cardImage: {
     width: "100%",
@@ -50,10 +57,20 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   albumImage: {
-    height: 200,
+    height: 150,
   },
   movieImage: {
     height: 300,
+  },
+  cardTitle: {
+    flex: 1,
+    flexWrap: "wrap",
+  },
+  albumTitle: {
+    fontSize: 12,
+  },
+  movieTitle: {
+    fontSize: 17,
   },
 });
 
