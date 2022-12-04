@@ -1,4 +1,4 @@
-import { Text, FlatList } from "react-native";
+import { Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
@@ -49,18 +49,21 @@ const HomeScreen = () => {
     getMoviesData();
   }, []);
   return (
-    <SafeAreaView style={styles.screenContainer}>
-      <HorizontalList
-        data={albumsData}
-        renderItem={renderAlbumsItem}
-        title="Music Albums"
-      />
-      <HorizontalList
-        data={moviesData}
-        renderItem={renderMoviesItem}
-        title="Movies"
-      />
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView style={styles.screenContainer}>
+        <HorizontalList
+          data={albumsData}
+          renderItem={renderAlbumsItem}
+          title="Music Albums"
+        />
+        <HorizontalList
+          data={moviesData}
+          renderItem={renderMoviesItem}
+          title="Movies"
+        />
+        <Text style={styles.title}>Songs</Text>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 
