@@ -4,9 +4,12 @@ import { useState } from "react";
 import { createSearchQuery, getData } from "../api.services";
 import { styles } from "../Styles";
 import { useAppContext } from "../AppContext";
+import FilterBox from "../components/FilterBox";
 // , set data using setSearchResults in DiscoverScreen.js
 
 const SearchScreen = () => {
+  const [currentFilter, setCurrentFilter] = useState("");
+
   const { searchResults, setSearchResults } = useAppContext();
   const [searchTerm, setSearchTerm] = useState("");
   const onSearch = async () => {
@@ -26,18 +29,10 @@ const SearchScreen = () => {
         <Button title="Search" onPress={() => onSearch()} />
       </View>
       <View style={styles.filterContainer}>
-        <TouchableOpacity style={styles.filter} onPress={onSearch}>
-          <Text>Songs</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.filter} onPress={onSearch}>
-          <Text>Songs</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.filter} onPress={onSearch}>
-          <Text>Songs</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.filter} onPress={onSearch}>
-          <Text>Songs</Text>
-        </TouchableOpacity>
+        <FilterBox title={"Songs"} />
+        <FilterBox title={"Movies"} />
+        <FilterBox title={"Albums"} />
+        <FilterBox title={"Podcast"} />
       </View>
     </SafeAreaView>
   );
