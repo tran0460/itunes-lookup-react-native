@@ -4,7 +4,7 @@ import React from "react";
 const HorizontalList = ({ data, renderItem, title }) => {
   return (
     <View>
-      <Text>{title}</Text>
+      <Text style={styles.listTitle}>{title}</Text>
       <FlatList
         horizontal
         style={styles.horizontalList}
@@ -18,6 +18,10 @@ const HorizontalList = ({ data, renderItem, title }) => {
 const styles = StyleSheet.create({
   horizontalList: {
     overflow: "visible",
+  },
+  listTitle: {
+    fontSize: 24,
+    marginBottom: 12,
   },
 });
 
