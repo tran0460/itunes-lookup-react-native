@@ -16,4 +16,17 @@ export const styles = StyleSheet.create({
     fontSize: 24,
     marginBottom: 12,
   },
+  filter: {
+    width: "45%",
+    height: 100,
+    backgroundColor: "red",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  filterContainer: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-around",
+  },
 });
