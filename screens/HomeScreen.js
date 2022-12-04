@@ -5,6 +5,7 @@ import { styles } from "../Styles";
 import { useState, useEffect, useCallback } from "react";
 import { createSearchQuery, getData } from "../api.services";
 import CardItem from "../components/CardItem";
+import HorizontalList from "../components/HorizontalList";
 const HomeScreen = () => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
@@ -39,7 +40,7 @@ const HomeScreen = () => {
   );
   const renderMoviesItem = useCallback(
     ({ item }) => {
-      return <Text>{item.trackName}**</Text>;
+      return <CardItem data={item} type="movie" />;
     },
     [moviesData]
   );
@@ -49,19 +50,15 @@ const HomeScreen = () => {
   }, []);
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <Text>Music Albums</Text>
-      <FlatList
-        horizontal
-        style={styles.horizontalList}
+      <HorizontalList
         data={albumsData}
         renderItem={renderAlbumsItem}
+        title="Music Albums"
       />
-      <Text>Movies</Text>
-      <FlatList
-        horizontal
-        style={styles.horizontalList}
+      <HorizontalList
         data={moviesData}
         renderItem={renderMoviesItem}
+        title="Movies"
       />
     </SafeAreaView>
   );
