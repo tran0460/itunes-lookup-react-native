@@ -50,9 +50,19 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.screenContainer}>
       <Text>Music Albums</Text>
-      <FlatList horizontal data={albumsData} renderItem={renderAlbumsItem} />
+      <FlatList
+        horizontal
+        style={styles.horizontalList}
+        data={albumsData}
+        renderItem={renderAlbumsItem}
+      />
       <Text>Movies</Text>
-      <FlatList horizontal data={moviesData} renderItem={renderMoviesItem} />
+      <FlatList
+        horizontal
+        style={styles.horizontalList}
+        data={moviesData}
+        renderItem={renderMoviesItem}
+      />
     </SafeAreaView>
   );
 };
