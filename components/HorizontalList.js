@@ -1,10 +1,10 @@
 import { Text, FlatList, View, StyleSheet } from "react-native";
 import React from "react";
 
-const HorizontalList = ({ data, renderItem }) => {
+const HorizontalList = ({ data, renderItem, title }) => {
   return (
     <View>
-      <Text>Music Albums</Text>
+      <Text>{title}</Text>
       <FlatList
         horizontal
         style={styles.horizontalList}
