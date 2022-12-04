@@ -1,8 +1,10 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 export const styles = StyleSheet.create({
   screenContainer: {
     paddingHorizontal: 16,
+    backgroundColor: "#fff",
+    height: Dimensions.get("window").height,
   },
   searchInput: {
     height: 40,
@@ -19,11 +21,13 @@ export const styles = StyleSheet.create({
   filter: {
     width: "45%",
     height: 100,
-    backgroundColor: "red",
+    backgroundColor: "purple",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 16,
+    borderRadius: 8,
   },
+
   filterContainer: {
     flexDirection: "row",
     flexWrap: "wrap",

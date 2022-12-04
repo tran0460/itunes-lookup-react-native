@@ -17,6 +17,7 @@ const SearchScreen = () => {
     const data = await getData(queries);
     setSearchResults(data);
   };
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View>
@@ -29,10 +30,19 @@ const SearchScreen = () => {
         <Button title="Search" onPress={() => onSearch()} />
       </View>
       <View style={styles.filterContainer}>
-        <FilterBox title={"Songs"} />
-        <FilterBox title={"Movies"} />
-        <FilterBox title={"Albums"} />
-        <FilterBox title={"Podcast"} />
+        <FilterBox title={"Songs"} onPress={() => setCurrentFilter("Songs")} />
+        <FilterBox
+          title={"Movies"}
+          onPress={() => setCurrentFilter("Movies")}
+        />
+        <FilterBox
+          title={"Albums"}
+          onPress={() => setCurrentFilter("Albums")}
+        />
+        <FilterBox
+          title={"Podcasts"}
+          onPress={() => setCurrentFilter("Podcasts")}
+        />
       </View>
     </SafeAreaView>
   );
