@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     marginBottom: 12,
   },
   filter: {
-    width: "45%",
+    width: "42.5%",
     height: 100,
     backgroundColor: "purple",
     justifyContent: "center",
@@ -27,10 +27,13 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     borderRadius: 8,
   },
-
   filterContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "space-around",
+  },
+  filterActive: {
+    transform: [{ scale: 1.05 }],
+    backgroundColor: "red",
   },
 });

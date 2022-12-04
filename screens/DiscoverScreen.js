@@ -30,17 +30,24 @@ const SearchScreen = () => {
         <Button title="Search" onPress={() => onSearch()} />
       </View>
       <View style={styles.filterContainer}>
-        <FilterBox title={"Songs"} onPress={() => setCurrentFilter("Songs")} />
+        <FilterBox
+          title={"Songs"}
+          currentFilter={currentFilter}
+          onPress={() => setCurrentFilter("Songs")}
+        />
         <FilterBox
           title={"Movies"}
+          currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Movies")}
         />
         <FilterBox
           title={"Albums"}
+          currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Albums")}
         />
         <FilterBox
           title={"Podcasts"}
+          currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Podcasts")}
         />
       </View>
