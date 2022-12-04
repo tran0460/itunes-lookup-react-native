@@ -12,7 +12,4 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     width: "100%",
   },
-  horizontalList: {
-    overflow: "visible",
-  },
 });
