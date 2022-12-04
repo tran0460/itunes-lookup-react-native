@@ -1,9 +1,11 @@
-import { Text, FlatList } from "react-native";
+import { Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
 import { useState, useEffect, useCallback } from "react";
 import { createSearchQuery, getData } from "../api.services";
+import CardItem from "../components/CardItem";
+import HorizontalList from "../components/HorizontalList";
 const HomeScreen = () => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
@@ -32,13 +34,13 @@ const HomeScreen = () => {
 
   const renderAlbumsItem = useCallback(
     ({ item }) => {
-      return <Text>{item.collectionName}**</Text>;
+      return <CardItem data={item} type="album" />;
     },
     [albumsData]
   );
   const renderMoviesItem = useCallback(
     ({ item }) => {
-      return <Text>{item.trackName}**</Text>;
+      return <CardItem data={item} type="movie" />;
     },
     [moviesData]
   );
@@ -47,12 +49,21 @@ const HomeScreen = () => {
     getMoviesData();
   }, []);
   return (
-    <SafeAreaView style={styles.screenContainer}>
-      <Text>Music Albums</Text>
-      <FlatList horizontal data={albumsData} renderItem={renderAlbumsItem} />
-      <Text>Movies</Text>
-      <FlatList horizontal data={moviesData} renderItem={renderMoviesItem} />
-    </SafeAreaView>
+    <ScrollView>
+      <SafeAreaView style={styles.screenContainer}>
+        <HorizontalList
+          data={albumsData}
+          renderItem={renderAlbumsItem}
+          title="Music Albums"
+        />
+        <HorizontalList
+          data={moviesData}
+          renderItem={renderMoviesItem}
+          title="Movies"
+        />
+        <Text style={styles.title}>Songs</Text>
+      </SafeAreaView>
+    </ScrollView>
   );
 };
 

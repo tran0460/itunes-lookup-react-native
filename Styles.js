@@ -12,4 +12,8 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     width: "100%",
   },
+  title: {
+    fontSize: 24,
+    marginBottom: 12,
+  },
 });
