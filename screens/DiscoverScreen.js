@@ -13,11 +13,16 @@ const SearchScreen = () => {
   const { searchResults, setSearchResults } = useAppContext();
   const [searchTerm, setSearchTerm] = useState("");
   const onSearch = async () => {
-    const queries = createSearchQuery({ term: searchTerm });
+    const queries = createSearchQuery({
+      term: searchTerm,
+      entity:
+        currentFilter == "Song" ? "musicTrack" : currentFilter.toLowerCase(),
+    });
+    console.log(queries);
     const data = await getData(queries);
     setSearchResults(data);
   };
-
+  console.log(searchResults);
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View>
@@ -31,24 +36,24 @@ const SearchScreen = () => {
       </View>
       <View style={styles.filterContainer}>
         <FilterBox
-          title={"Songs"}
+          title={"Song"}
           currentFilter={currentFilter}
-          onPress={() => setCurrentFilter("Songs")}
+          onPress={() => setCurrentFilter("Song")}
         />
         <FilterBox
-          title={"Movies"}
+          title={"Movie"}
           currentFilter={currentFilter}
-          onPress={() => setCurrentFilter("Movies")}
+          onPress={() => setCurrentFilter("Movie")}
         />
         <FilterBox
-          title={"Albums"}
+          title={"Album"}
           currentFilter={currentFilter}
-          onPress={() => setCurrentFilter("Albums")}
+          onPress={() => setCurrentFilter("Album")}
         />
         <FilterBox
-          title={"Podcasts"}
+          title={"Podcast"}
           currentFilter={currentFilter}
-          onPress={() => setCurrentFilter("Podcasts")}
+          onPress={() => setCurrentFilter("Podcast")}
         />
       </View>
     </SafeAreaView>
