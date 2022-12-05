@@ -7,7 +7,7 @@ import { useAppContext } from "../AppContext";
 import FilterBox from "../components/FilterBox";
 // , set data using setSearchResults in DiscoverScreen.js
 
-const SearchScreen = () => {
+const DiscoverScreen = ({ navigation }) => {
   const [currentFilter, setCurrentFilter] = useState("");
 
   const { searchResults, setSearchResults } = useAppContext();
@@ -21,6 +21,7 @@ const SearchScreen = () => {
     console.log(queries);
     const data = await getData(queries);
     setSearchResults(data);
+    navigation.navigate("ResultsScreen");
   };
   console.log(searchResults);
   return (
@@ -32,7 +33,11 @@ const SearchScreen = () => {
           style={styles.searchInput}
           placeholder="Search"
         />
-        <Button title="Search" onPress={() => onSearch()} />
+        <Button
+          disabled={currentFilter === ""}
+          title="Search"
+          onPress={() => onSearch()}
+        />
       </View>
       <View style={styles.filterContainer}>
         <FilterBox
@@ -60,4 +65,4 @@ const SearchScreen = () => {
   );
 };
 
-export default SearchScreen;
+export default DiscoverScreen;
