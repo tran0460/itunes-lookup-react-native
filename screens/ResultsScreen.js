@@ -4,11 +4,12 @@ import { useAppContext } from "../AppContext";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { FlatList } from "react-native-gesture-handler";
+import ListItem from "../components/ListItem";
 
 const ResultsScreen = () => {
   const { searchResults } = useAppContext();
   function renderItem({ item }) {
-    return <Text>{item.trackName}</Text>;
+    return <ListItem data={item} />;
   }
 
   return (

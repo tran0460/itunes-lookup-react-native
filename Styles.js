@@ -36,4 +36,9 @@ export const styles = StyleSheet.create({
     transform: [{ scale: 1.05 }],
     backgroundColor: "red",
   },
+  listItemContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
 });
