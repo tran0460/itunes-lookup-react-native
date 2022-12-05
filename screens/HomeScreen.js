@@ -54,7 +54,7 @@ const HomeScreen = () => {
         <HorizontalList
           data={albumsData}
           renderItem={renderAlbumsItem}
-          title="Music Albums"
+          title="Albums"
         />
         <HorizontalList
           data={moviesData}

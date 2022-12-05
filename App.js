@@ -5,11 +5,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import DiscoverNavigator from "./Navigators/DiscoverNavigator";
 import { AppContext } from "./AppContext";
+import HouseIcon from "./components/icons/HouseIcon";
+import HouseFillIcon from "./components/icons/HouseFillIcon";
+import Compass from "./components/icons/Compass";
+import CompassFill from "./components/icons/CompassFill";
 
 /**
  * EXPO PACKAGES:
  * react-native-safe-area-context
+ * react-native-svg
+ * expo-splash-screen
+ * expo-speech
+ * expo-av
  */
+
 const Tab = createBottomTabNavigator();
 
 // TODO
@@ -24,14 +33,30 @@ export default function App() {
       value={{
         searchResults,
         setSearchResults,
-      }}>
+      }}
+    >
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-          }}>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Discover" component={DiscoverNavigator} />
+          }}
+        >
+          <Tab.Screen
+            name="Home"
+            options={{
+              tabBarIcon: ({ focused }) =>
+                focused ? <HouseFillIcon /> : <HouseIcon />,
+            }}
+            component={HomeScreen}
+          />
+          <Tab.Screen
+            name="Discover"
+            options={{
+              tabBarIcon: ({ focused }) =>
+                focused ? <CompassFill /> : <Compass />,
+            }}
+            component={DiscoverNavigator}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </AppContext.Provider>
