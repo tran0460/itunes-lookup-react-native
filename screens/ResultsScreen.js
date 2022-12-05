@@ -14,7 +14,6 @@ const ResultsScreen = () => {
   return (
     <SafeAreaView>
       <FlatList data={searchResults} renderItem={renderItem} />
-      <Text>ResultsScreen</Text>
     </SafeAreaView>
   );
 };

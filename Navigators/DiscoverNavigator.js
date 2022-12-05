@@ -19,7 +19,7 @@ const DiscoverNavigator = () => {
         name="ResultsScreen"
         component={ResultsScreen}
         options={{
-          headerShown: false,
+          headerShown: true,
         }}
       />
     </Stack.Navigator>
