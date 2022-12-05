@@ -13,7 +13,8 @@ const ResultsScreen = () => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.screenContainer}>
+      <Text>Ben</Text>
       <FlatList data={searchResults} renderItem={renderItem} />
     </SafeAreaView>
   );

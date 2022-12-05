@@ -9,7 +9,11 @@ import { AppContext } from "./AppContext";
 /**
  * EXPO PACKAGES:
  * react-native-safe-area-context
+ * react-native-svg
+ * expo-splash-screen
+ * expo-speech
  */
+
 const Tab = createBottomTabNavigator();
 
 // TODO
@@ -24,12 +28,14 @@ export default function App() {
       value={{
         searchResults,
         setSearchResults,
-      }}>
+      }}
+    >
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-          }}>
+          }}
+        >
           <Tab.Screen name="Home" component={HomeScreen} />
           <Tab.Screen name="Discover" component={DiscoverNavigator} />
         </Tab.Navigator>
