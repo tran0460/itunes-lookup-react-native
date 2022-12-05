@@ -6,7 +6,7 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import ListItem from "../components/ListItem";
 
-const ResultsScreen = () => {
+const ResultsScreen = ({ route }) => {
   const { searchResults } = useAppContext();
   function renderItem({ item }) {
     return <ListItem data={item} />;
@@ -14,8 +14,14 @@ const ResultsScreen = () => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <Text>Ben</Text>
-      <FlatList data={searchResults} renderItem={renderItem} />
+      <Text> Results for {route.params?.searchTerm}</Text>
+      <FlatList
+        data={searchResults}
+        ListEmptyComponent={
+          <Text> No results for {route.params?.searchTerm}</Text>
+        }
+        renderItem={renderItem}
+      />
     </SafeAreaView>
   );
 };

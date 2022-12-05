@@ -18,12 +18,12 @@ const DiscoverScreen = ({ navigation }) => {
       entity:
         currentFilter == "Song" ? "musicTrack" : currentFilter.toLowerCase(),
     });
-    console.log(queries);
+
     const data = await getData(queries);
     setSearchResults(data);
-    navigation.navigate("ResultsScreen");
+    navigation.navigate("ResultsScreen", { searchTerm });
   };
-  console.log(searchResults);
+
   return (
     <SafeAreaView style={styles.screenContainer}>
       <View>
@@ -34,7 +34,7 @@ const DiscoverScreen = ({ navigation }) => {
           placeholder="Search"
         />
         <Button
-          disabled={currentFilter === ""}
+          disabled={currentFilter === "" || searchTerm === ""}
           title="Search"
           onPress={() => onSearch()}
         />

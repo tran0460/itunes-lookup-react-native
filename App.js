@@ -12,6 +12,7 @@ import { AppContext } from "./AppContext";
  * react-native-svg
  * expo-splash-screen
  * expo-speech
+ * expo-av
  */
 
 const Tab = createBottomTabNavigator();
