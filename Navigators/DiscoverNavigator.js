@@ -1,6 +1,7 @@
 import React from "react";
 import ResultsScreen from "../screens/ResultsScreen";
 import DiscoverScreen from "../screens/DiscoverScreen";
+import DetailsScreen from "../screens/DetailsScreen";
 import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
@@ -24,6 +25,7 @@ const DiscoverNavigator = () => {
           headerBackTitle: "Back",
         })}
       />
+      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
     </Stack.Navigator>
   );
 };

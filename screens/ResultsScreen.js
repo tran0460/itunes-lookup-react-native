@@ -1,4 +1,4 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import { styles } from "../Styles";
 import { useAppContext } from "../AppContext";
 import React from "react";
@@ -8,7 +8,11 @@ import ListItem from "../components/ListItem";
 const ResultsScreen = ({ route }) => {
   const { searchResults } = useAppContext();
   function renderItem({ item }) {
-    return <ListItem data={item} />;
+    return (
+      <TouchableOpacity>
+        <ListItem data={item} />
+      </TouchableOpacity>
+    );
   }
 
   return (
@@ -17,7 +21,8 @@ const ResultsScreen = ({ route }) => {
         searchResults.length > 10
           ? styles.screenContainerNotExtended
           : styles.screenContainer
-      }>
+      }
+    >
       <FlatList
         data={searchResults}
         ListHeaderComponent={
