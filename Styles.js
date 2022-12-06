@@ -41,5 +41,23 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 20,
+    width: "100%",
+  },
+  listItemContent: {
+    flexGrow: 1,
+    flexDirection: "column",
+    height: "100%",
+    justifyContent: "flex-start",
+    paddingVertical: 4,
+    marginLeft: 12,
+  },
+  listItemName: {
+    fontSize: 20,
+    maxWidth: "90%",
+    flexGrow: 2,
+  },
+  listItemAuthor: {
+    fontSize: 14,
+    flexGrow: 1,
   },
 });

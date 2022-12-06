@@ -8,11 +8,15 @@ const ListItem = ({ data }) => {
     <View style={styles.listItemContainer}>
       <Image
         source={{ uri: upScaledImage400 }}
-        style={{ width: 75, height: 75 }}
+        style={{ width: 60, height: 60 }}
       />
-      <View>
-        <Text>{data.trackName}</Text>
-        <Text>{data.artistName}</Text>
+      <View style={styles.listItemContent}>
+        <Text numberOfLines={2} style={styles.listItemName}>
+          {data.trackName}
+        </Text>
+        <Text numberOfLines={1} style={styles.listItemAuthor}>
+          {data.artistName}
+        </Text>
       </View>
     </View>
   );
