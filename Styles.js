@@ -50,11 +50,12 @@ export const styles = StyleSheet.create({
     justifyContent: "flex-start",
     paddingVertical: 4,
     marginLeft: 12,
+    width: "80%",
   },
   listItemName: {
     fontSize: 20,
-    maxWidth: "90%",
     flexGrow: 2,
+    marginBottom: 8,
   },
   listItemAuthor: {
     fontSize: 14,
