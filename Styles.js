@@ -17,6 +17,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     marginBottom: 12,
+    paddingVertical: 8,
   },
   filter: {
     width: "42.5%",
