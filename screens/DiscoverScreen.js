@@ -10,7 +10,7 @@ import FilterBox from "../components/FilterBox";
 const DiscoverScreen = ({ navigation }) => {
   const [currentFilter, setCurrentFilter] = useState("");
 
-  const { searchResults, setSearchResults } = useAppContext();
+  const { setSearchResults } = useAppContext();
   const [searchTerm, setSearchTerm] = useState("");
   const onSearch = async () => {
     const queries = createSearchQuery({
