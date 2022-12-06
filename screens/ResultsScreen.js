@@ -5,11 +5,11 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import ListItem from "../components/ListItem";
 
-const ResultsScreen = ({ route }) => {
+const ResultsScreen = ({ route, navigation }) => {
   const { searchResults } = useAppContext();
   function renderItem({ item }) {
     return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("DetailsScreen")}>
         <ListItem data={item} />
       </TouchableOpacity>
     );
