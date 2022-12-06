@@ -1,4 +1,4 @@
-import { Text, ScrollView } from "react-native";
+import { Text, ScrollView, FlatList, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
@@ -6,9 +6,11 @@ import { useState, useEffect, useCallback } from "react";
 import { createSearchQuery, getData } from "../api.services";
 import CardItem from "../components/CardItem";
 import HorizontalList from "../components/HorizontalList";
+import ListItem from "../components/ListItem";
 const HomeScreen = () => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
+  const [songsData, setSongsData] = useState([]);
 
   const getAlbumsData = async () => {
     const queries = createSearchQuery({
@@ -31,6 +33,17 @@ const HomeScreen = () => {
     const data = await getData(queries);
     setMoviesData(data);
   };
+  const getSongsData = async () => {
+    const queries = createSearchQuery({
+      term: "Great",
+      limit: "10",
+      country: "ca",
+      lang: "en_us",
+      entity: "song",
+    });
+    const data = await getData(queries);
+    setSongsData(data);
+  };
 
   const renderAlbumsItem = useCallback(
     ({ item }) => {
@@ -44,13 +57,21 @@ const HomeScreen = () => {
     },
     [moviesData]
   );
+  const renderSongsItem = useCallback(
+    ({ item }) => {
+      return <ListItem data={item} key={item.trackName} />;
+    },
+    [songsData]
+  );
+
   useEffect(() => {
     getAlbumsData();
     getMoviesData();
+    getSongsData();
   }, []);
   return (
-    <ScrollView>
-      <SafeAreaView style={styles.screenContainer}>
+    <ScrollView style={styles.screenContainer}>
+      <SafeAreaView>
         <HorizontalList
           data={albumsData}
           renderItem={renderAlbumsItem}
@@ -62,6 +83,7 @@ const HomeScreen = () => {
           title="Movies"
         />
         <Text style={styles.title}>Songs</Text>
+        {songsData.map((item) => renderSongsItem({ item }))}
       </SafeAreaView>
     </ScrollView>
   );

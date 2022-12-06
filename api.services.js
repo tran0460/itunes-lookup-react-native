@@ -42,6 +42,7 @@ export const createSearchQuery = ({
   lang = "",
   version = "",
   explicit = "",
+  custom = "",
 }) => {
   const termQuery = term ? `term=${term.replace(" ", "+")}` : "";
   const countryQuery = country ? `&country=${country}` : "";
@@ -53,7 +54,7 @@ export const createSearchQuery = ({
   const languageQuery = lang ? `&language=${lang}` : "";
   const versionQuery = version ? `&version=${version}` : "";
   const explicitQuery = explicit ? `&explicit=${explicit}` : "";
-  return `${termQuery}${countryQuery}${mediaQuery}${languageQuery}${versionQuery}${explicitQuery}${entityQuery}${attributesQuery}${callbackQuery}${limitQuery}`;
+  return `${termQuery}${countryQuery}${mediaQuery}${languageQuery}${versionQuery}${explicitQuery}${entityQuery}${attributesQuery}${callbackQuery}${limitQuery}&${custom}`;
 };
 export const getData = (queries) => {
   try {

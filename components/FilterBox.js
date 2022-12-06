@@ -9,9 +9,8 @@ const FilterBox = ({ title, onPress, currentFilter }) => {
         styles.filter,
         currentFilter === title ? styles.filterActive : null,
       ]}
-      onPress={onPress}
-    >
-      <Text>{title}</Text>
+      onPress={onPress}>
+      <Text style={styles.filterBoxText}>{title}</Text>
     </TouchableOpacity>
   );
 };
