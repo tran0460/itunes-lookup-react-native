@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
   filter: {
     width: "42.5%",
     height: 100,
-    backgroundColor: "purple",
+    backgroundColor: "#111",
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 16,
@@ -38,9 +38,15 @@ export const styles = StyleSheet.create({
     flexWrap: "wrap",
     justifyContent: "space-around",
   },
+  filterBoxText: {
+    color: "#fff",
+    fontSize: 22,
+    fontWeight: "semibold",
+  },
   filterActive: {
     transform: [{ scale: 1.05 }],
-    backgroundColor: "red",
+    backgroundColor: "#111",
+    opacity: 0.6,
   },
   listItemContainer: {
     flexDirection: "row",
