@@ -49,8 +49,8 @@ const HomeScreen = () => {
     getMoviesData();
   }, []);
   return (
-    <ScrollView>
-      <SafeAreaView style={styles.screenContainer}>
+    <ScrollView style={styles.screenContainer}>
+      <SafeAreaView>
         <HorizontalList
           data={albumsData}
           renderItem={renderAlbumsItem}

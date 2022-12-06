@@ -12,7 +12,7 @@ const ResultsScreen = ({ route }) => {
   }
 
   return (
-    <View style={styles.screenContainer}>
+    <View style={styles.screenContainerNotExtended}>
       <FlatList
         data={searchResults}
         ListHeaderComponent={

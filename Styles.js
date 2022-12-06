@@ -6,6 +6,10 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     height: Dimensions.get("window").height,
   },
+  screenContainerNotExtended: {
+    paddingHorizontal: 16,
+    backgroundColor: "#fff",
+  },
   searchInput: {
     height: 40,
     borderColor: "#CCCCCC",
