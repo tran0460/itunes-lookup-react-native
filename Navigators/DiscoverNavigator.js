@@ -18,9 +18,11 @@ const DiscoverNavigator = () => {
       <Stack.Screen
         name="ResultsScreen"
         component={ResultsScreen}
-        options={{
+        options={({ route }) => ({
           headerShown: true,
-        }}
+          title: route.params?.title,
+          headerBackTitle: "Back",
+        })}
       />
     </Stack.Navigator>
   );

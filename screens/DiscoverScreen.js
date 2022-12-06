@@ -21,7 +21,10 @@ const DiscoverScreen = ({ navigation }) => {
 
     const data = await getData(queries);
     setSearchResults(data);
-    navigation.navigate("ResultsScreen", { searchTerm });
+    navigation.navigate("ResultsScreen", {
+      searchTerm,
+      title: currentFilter + "s",
+    });
   };
 
   return (
