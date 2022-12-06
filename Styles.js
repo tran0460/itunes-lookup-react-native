@@ -20,6 +20,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
+    fontWeight: "bold",
     marginBottom: 12,
     paddingVertical: 8,
   },
@@ -64,5 +65,36 @@ export const styles = StyleSheet.create({
   listItemAuthor: {
     fontSize: 14,
     flexGrow: 1,
+  },
+  cardContainer: {
+    flex: 1,
+    flexDirection: "column",
+    marginRight: 20,
+    marginBottom: 16,
+  },
+  albumCard: {
+    width: 150,
+    height: 210,
+  },
+  movieCard: {
+    width: 200,
+    height: 340,
+  },
+  cardImage: {
+    width: "100%",
+    borderRadius: 4,
+    marginBottom: 12,
+  },
+  albumImage: {
+    height: 150,
+  },
+  movieImage: {
+    height: 300,
+  },
+  albumTitle: {
+    fontSize: 12,
+  },
+  movieTitle: {
+    fontSize: 17,
   },
 });
