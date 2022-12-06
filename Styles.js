@@ -97,4 +97,7 @@ export const styles = StyleSheet.create({
   movieTitle: {
     fontSize: 17,
   },
+  horizontalList: {
+    overflow: "visible",
+  },
 });
