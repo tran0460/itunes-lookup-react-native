@@ -19,8 +19,10 @@ const DetailsScreen = () => {
       <Text onPress={() => Linking.openURL(currentItem.previewUrl)}>
         Music Preview
       </Text>
+      <Text onPress={() => Linking.openURL("music://app?")}>Music.....</Text>
     </View>
   );
 };
+//app?saddr=Cupertino&S100.123+101.222
 
 export default DetailsScreen;
