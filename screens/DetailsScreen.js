@@ -19,7 +19,15 @@ const DetailsScreen = () => {
       <Text onPress={() => Linking.openURL(currentItem.previewUrl)}>
         Music Preview
       </Text>
-      <Text onPress={() => Linking.openURL("music://app?")}>Music.....</Text>
+      <Text
+        onPress={() =>
+          Linking.openURL(
+            `music${currentItem.trackViewUrl.replace("https", "")}`
+          )
+        }
+      >
+        Open in Apple Music
+      </Text>
     </View>
   );
 };
