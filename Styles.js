@@ -106,4 +106,19 @@ export const styles = StyleSheet.create({
   horizontalList: {
     overflow: "visible",
   },
+  carddetails: {
+    width: "40%",
+    height: 200,
+  },
+  detailscontainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+  },
+  textdetails: {
+    marginTop: 20,
+    marginBottom: 10,
+  },
 });

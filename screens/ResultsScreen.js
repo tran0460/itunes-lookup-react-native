@@ -6,13 +6,19 @@ import { FlatList } from "react-native-gesture-handler";
 import ListItem from "../components/ListItem";
 
 const ResultsScreen = ({ route, navigation }) => {
-  const { searchResults } = useAppContext();
+  const { searchResults, setCurrentItem } = useAppContext();
+
   function renderItem({ item }) {
     return (
-      <TouchableOpacity onPress={() => navigation.navigate("DetailsScreen")}>
+      <TouchableOpacity onPress={() => press(item)}>
         <ListItem data={item} />
       </TouchableOpacity>
     );
+  }
+
+  function press(currentItem) {
+    setCurrentItem(currentItem);
+    navigation.navigate("DetailsScreen");
   }
 
   return (
