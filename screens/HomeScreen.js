@@ -1,4 +1,10 @@
-import { Text, ScrollView, FlatList, View } from "react-native";
+import {
+  Text,
+  ScrollView,
+  FlatList,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
@@ -7,11 +13,12 @@ import { createSearchQuery, getData } from "../api.services";
 import CardItem from "../components/CardItem";
 import HorizontalList from "../components/HorizontalList";
 import ListItem from "../components/ListItem";
+import { useAppContext } from "../AppContext";
 const HomeScreen = ({ navigation }) => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
   const [songsData, setSongsData] = useState([]);
-
+  const { setCurrentItem } = useAppContext();
   const getAlbumsData = async () => {
     const queries = createSearchQuery({
       term: "top 20 2022",
@@ -59,7 +66,16 @@ const HomeScreen = ({ navigation }) => {
   );
   const renderSongsItem = useCallback(
     ({ item }) => {
-      return <ListItem data={item} key={item.trackName} />;
+      return (
+        <TouchableOpacity
+          onPress={() => {
+            setCurrentItem(item);
+            navigation.navigate("DetailsScreen");
+          }}
+        >
+          <ListItem data={item} key={item.trackName} />
+        </TouchableOpacity>
+      );
     },
     [songsData]
   );
