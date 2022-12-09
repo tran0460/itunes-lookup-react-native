@@ -7,7 +7,7 @@ import { createSearchQuery, getData } from "../api.services";
 import CardItem from "../components/CardItem";
 import HorizontalList from "../components/HorizontalList";
 import ListItem from "../components/ListItem";
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
   const [songsData, setSongsData] = useState([]);
@@ -47,13 +47,13 @@ const HomeScreen = () => {
 
   const renderAlbumsItem = useCallback(
     ({ item }) => {
-      return <CardItem data={item} type="album" />;
+      return <CardItem data={item} type="album" navigation={navigation} />;
     },
     [albumsData]
   );
   const renderMoviesItem = useCallback(
     ({ item }) => {
-      return <CardItem data={item} type="movie" />;
+      return <CardItem data={item} type="movie" navigation={navigation} />;
     },
     [moviesData]
   );
@@ -76,11 +76,13 @@ const HomeScreen = () => {
           data={albumsData}
           renderItem={renderAlbumsItem}
           title="Albums"
+          navigation={navigation}
         />
         <HorizontalList
           data={moviesData}
           renderItem={renderMoviesItem}
           title="Movies"
+          navigation={navigation}
         />
         <Text style={styles.title}>Songs</Text>
         {songsData.map((item) => renderSongsItem({ item }))}
