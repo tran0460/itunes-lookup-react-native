@@ -13,15 +13,20 @@ import * as Linking from "expo-linking";
 
 const DetailsScreen = () => {
   const { currentItem } = useAppContext();
-  console.log(currentItem);
+  const upScaledImage600 = currentItem.artworkUrl100.replace(
+    "100x100bb",
+    "600x600bb"
+  );
 
+  const createAppName = () => {
+    if (currentItem.kind === "podcast") return "Podcasts";
+    if (currentItem.kind === "feature-movie") return "Itunes Movies";
+    return "Apple Music";
+  };
   return (
     <View style={styles.screenContainer}>
       <View style={styles.detailsContent}>
-        <Image
-          style={styles.carddetails}
-          source={{ uri: currentItem.artworkUrl60 }}
-        />
+        <Image style={styles.carddetails} source={{ uri: upScaledImage600 }} />
 
         <Text style={styles.textdetails}>{currentItem.artistName}</Text>
 
@@ -33,38 +38,37 @@ const DetailsScreen = () => {
 
         <Text>${currentItem.collectionPrice}</Text>
       </View>
-      {currentItem.collectionType === "Album" ? null : (
-        <View style={styles.buttonsContainer}>
-          <TouchableOpacity
-            style={[styles.preview, styles.shadow]}
-            onPress={() => Linking.openURL(currentItem.previewUrl)}
-          >
-            <Text style={styles.buttonText}> Open preview in browser </Text>
-          </TouchableOpacity>
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity
+          style={[styles.preview, styles.shadow]}
+          onPress={() => Linking.openURL(currentItem.previewUrl)}
+        >
+          <Text style={styles.buttonText}> Open preview in browser </Text>
+        </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.preview}
-            onPress={() => {
-              if (Platform.OS === "android")
-                return Alert.alert("Not supported on Android");
-              if (currentItem.kind === "podcast") {
-                return Linking.openURL(
-                  `podcast${currentItem.feedUrl.replace("https", "")}`
-                );
-              }
+        <TouchableOpacity
+          style={styles.preview}
+          onPress={() => {
+            if (Platform.OS === "android")
+              return Alert.alert("Not supported on Android");
+            if (currentItem.kind === "podcast")
               return Linking.openURL(
-                `music${currentItem.trackViewUrl.replace("https", "")}`
+                `podcast${currentItem.feedUrl.replace("https", "")}`
               );
-            }}
-          >
-            <Text style={styles.buttonText}>
-              {currentItem.kind === "podcast"
-                ? "Open in Podcasts"
-                : " Open in Apple Music "}
-            </Text>
-          </TouchableOpacity>
-        </View>
-      )}
+            if (currentItem.kind === "feature-movie")
+              return Linking.openURL(currentItem.trackViewUrl);
+            if (currentItem.collectionType === "Album")
+              return Linking.openURL(
+                `music${currentItem.collectionViewUrl.replace("https", "")}`
+              );
+            return Linking.openURL(
+              `music${currentItem.trackViewUrl.replace("https", "")}`
+            );
+          }}
+        >
+          <Text style={styles.buttonText}>Open in {createAppName()} </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

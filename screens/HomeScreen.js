@@ -1,4 +1,10 @@
-import { Text, ScrollView, FlatList, View } from "react-native";
+import {
+  Text,
+  ScrollView,
+  FlatList,
+  View,
+  TouchableOpacity,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import React from "react";
 import { styles } from "../Styles";
@@ -7,11 +13,12 @@ import { createSearchQuery, getData } from "../api.services";
 import CardItem from "../components/CardItem";
 import HorizontalList from "../components/HorizontalList";
 import ListItem from "../components/ListItem";
-const HomeScreen = () => {
+import { useAppContext } from "../AppContext";
+const HomeScreen = ({ navigation }) => {
   const [albumsData, setAlbumsData] = useState([]);
   const [moviesData, setMoviesData] = useState([]);
   const [songsData, setSongsData] = useState([]);
-
+  const { setCurrentItem } = useAppContext();
   const getAlbumsData = async () => {
     const queries = createSearchQuery({
       term: "top 20 2022",
@@ -47,19 +54,28 @@ const HomeScreen = () => {
 
   const renderAlbumsItem = useCallback(
     ({ item }) => {
-      return <CardItem data={item} type="album" />;
+      return <CardItem data={item} type="album" navigation={navigation} />;
     },
     [albumsData]
   );
   const renderMoviesItem = useCallback(
     ({ item }) => {
-      return <CardItem data={item} type="movie" />;
+      return <CardItem data={item} type="movie" navigation={navigation} />;
     },
     [moviesData]
   );
   const renderSongsItem = useCallback(
     ({ item }) => {
-      return <ListItem data={item} key={item.trackName} />;
+      return (
+        <TouchableOpacity
+          onPress={() => {
+            setCurrentItem(item);
+            navigation.navigate("DetailsScreen");
+          }}
+        >
+          <ListItem data={item} key={item.trackName} />
+        </TouchableOpacity>
+      );
     },
     [songsData]
   );
@@ -76,11 +92,13 @@ const HomeScreen = () => {
           data={albumsData}
           renderItem={renderAlbumsItem}
           title="Albums"
+          navigation={navigation}
         />
         <HorizontalList
           data={moviesData}
           renderItem={renderMoviesItem}
           title="Movies"
+          navigation={navigation}
         />
         <Text style={styles.title}>Songs</Text>
         {songsData.map((item) => renderSongsItem({ item }))}
