@@ -15,7 +15,14 @@ const HomeNavigator = () => {
           headerShown: false,
         }}
       />
-      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+      <Stack.Screen
+        name="DetailsScreen"
+        component={DetailsScreen}
+        options={{
+          title: "Details",
+          headerBackTitle: "Homegit",
+        }}
+      />
     </Stack.Navigator>
   );
 };
