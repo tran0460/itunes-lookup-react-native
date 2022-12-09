@@ -13,7 +13,10 @@ import * as Linking from "expo-linking";
 
 const DetailsScreen = () => {
   const { currentItem } = useAppContext();
-  console.log(currentItem);
+  const upScaledImage600 = currentItem.artworkUrl100.replace(
+    "100x100bb",
+    "600x600bb"
+  );
 
   const createAppName = () => {
     if (currentItem.kind === "podcast") return "Podcasts";
@@ -23,10 +26,7 @@ const DetailsScreen = () => {
   return (
     <View style={styles.screenContainer}>
       <View style={styles.detailsContent}>
-        <Image
-          style={styles.carddetails}
-          source={{ uri: currentItem.artworkUrl60 }}
-        />
+        <Image style={styles.carddetails} source={{ uri: upScaledImage600 }} />
 
         <Text style={styles.textdetails}>{currentItem.artistName}</Text>
 
