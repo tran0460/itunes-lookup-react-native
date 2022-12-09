@@ -2,13 +2,14 @@ import { useState } from "react";
 import { StyleSheet } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "./screens/HomeScreen";
+
 import DiscoverNavigator from "./Navigators/DiscoverNavigator";
 import { AppContext } from "./AppContext";
 import HouseIcon from "./components/icons/HouseIcon";
 import HouseFillIcon from "./components/icons/HouseFillIcon";
 import Compass from "./components/icons/Compass";
 import CompassFill from "./components/icons/CompassFill";
+import HomeNavigator from "./Navigators/HomeNavigator";
 
 /**
  * EXPO PACKAGES:
@@ -52,7 +53,7 @@ export default function App() {
               tabBarIcon: ({ focused }) =>
                 focused ? <HouseFillIcon /> : <HouseIcon />,
             }}
-            component={HomeScreen}
+            component={HomeNavigator}
           />
           <Tab.Screen
             name="Discover"
