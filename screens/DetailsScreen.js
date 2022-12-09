@@ -57,6 +57,10 @@ const DetailsScreen = () => {
               );
             if (currentItem.kind === "feature-movie")
               return Linking.openURL(currentItem.trackViewUrl);
+            if (currentItem.collectionType === "Album")
+              return Linking.openURL(
+                `music${currentItem.collectionViewUrl.replace("https", "")}`
+              );
             return Linking.openURL(
               `music${currentItem.trackViewUrl.replace("https", "")}`
             );
