@@ -17,6 +17,7 @@ import CompassFill from "./components/icons/CompassFill";
  * expo-splash-screen
  * expo-speech
  * expo-av
+ * expo-linking
  */
 
 const Tab = createBottomTabNavigator();
@@ -28,11 +29,15 @@ const Tab = createBottomTabNavigator();
 // Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
   const [searchResults, setSearchResults] = useState([]);
+  const [currentItem, setCurrentItem] = useState({});
+
   return (
     <AppContext.Provider
       value={{
         searchResults,
         setSearchResults,
+        currentItem,
+        setCurrentItem,
       }}
     >
       <NavigationContainer>

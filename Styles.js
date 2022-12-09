@@ -106,4 +106,49 @@ export const styles = StyleSheet.create({
   horizontalList: {
     overflow: "visible",
   },
+  carddetails: {
+    width: "40%",
+    height: 200,
+  },
+  detailscontainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 30,
+  },
+  textdetails: {
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  preview: {
+    borderRadius: 8, // border-radius: 8
+    backgroundColor: "#FF2D55",
+    margin: 12,
+    padding: 12,
+    width: "70%",
+    alignItems: "center",
+  },
+  shadow: {
+    shadowColor: "#4D4D4D", // color: #4D4D4D
+    shadowOffset: {
+      // no offset x, y
+      width: 0,
+      height: 0,
+    },
+    shadowOpacity: 0.25, // opacity: 0.15
+    shadowRadius: 4, // radius: 24
+    elevation: 5, // elevation: 5
+  },
+  buttonsContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  detailsContent: {
+    alignItems: "center",
+    marginTop: 30,
+  },
+  buttonText: {
+    color: "#fff",
+  },
 });
