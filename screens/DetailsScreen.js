@@ -24,7 +24,7 @@ const DetailsScreen = () => {
     return "Apple Music";
   };
   return (
-    <View style={styles.screenContainer}>
+    <View style={[styles.screenContainer, styles.discoveryScreenContainer]}>
       <View style={styles.detailsContent}>
         <Image style={styles.carddetails} source={{ uri: upScaledImage600 }} />
         <Text style={styles.cardTitle}>

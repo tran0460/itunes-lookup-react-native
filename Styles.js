@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     height: Dimensions.get("window").height,
   },
+  discoveryScreenContainer: {
+    flex: 1,
+  },
   screenContainerNotExtended: {
     paddingHorizontal: 16,
     backgroundColor: "#fff",

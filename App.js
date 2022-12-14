@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, StatusBar } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
@@ -40,6 +40,7 @@ export default function App() {
         currentItem,
         setCurrentItem,
       }}>
+      <StatusBar barStyle={"dark-content"} />
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
