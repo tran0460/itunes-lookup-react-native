@@ -34,15 +34,21 @@ const DetailsScreen = () => {
             : currentItem.trackName}
         </Text>
         <Text style={styles.cardArtist}>{currentItem.artistName}</Text>
-        <Text>${currentItem.collectionPrice}</Text>
+        <Text style={styles.cardPrice}>
+          {currentItem.collectionPrice === 0
+            ? "Free"
+            : `$${currentItem.collectionPrice}`}
+        </Text>
       </View>
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity
-          style={[styles.preview, styles.shadow]}
-          onPress={() => Linking.openURL(currentItem.previewUrl)}>
-          <Text style={styles.buttonText}> Open preview in browser </Text>
-        </TouchableOpacity>
-
+        {currentItem.collectionType === "Album" ||
+        currentItem.kind === "podcast" ? null : (
+          <TouchableOpacity
+            style={[styles.preview, styles.shadow]}
+            onPress={() => Linking.openURL(currentItem.previewUrl)}>
+            <Text style={styles.buttonText}> Open preview in browser </Text>
+          </TouchableOpacity>
+        )}
         <TouchableOpacity
           style={styles.preview}
           onPress={() => {

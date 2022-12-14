@@ -121,10 +121,15 @@ export const styles = StyleSheet.create({
   cardTitle: {
     marginBottom: 10,
     fontSize: 25,
+    textAlign: "center",
   },
   cardArtist: {
     marginBottom: 10,
-    fontSize: 15,
+    fontSize: 17.5,
+    color: "#4d4d4d",
+  },
+  cardPrice: {
+    fontSize: 14,
   },
   preview: {
     borderRadius: 8, // border-radius: 8
