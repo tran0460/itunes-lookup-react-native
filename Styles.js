@@ -13,13 +13,17 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     backgroundColor: "#fff",
   },
+  searchContainer: {
+    flexDirection: "row",
+    marginBottom: 20,
+  },
   searchInput: {
     height: 40,
     borderColor: "#CCCCCC",
     borderWidth: 1,
     paddingHorizontal: 10,
     borderRadius: 10,
-    width: "100%",
+    flexGrow: 2,
   },
   title: {
     fontSize: 24,
@@ -48,9 +52,8 @@ export const styles = StyleSheet.create({
     fontWeight: "semibold",
   },
   filterActive: {
-    transform: [{ scale: 1.05 }],
-    backgroundColor: "#111",
-    opacity: 0.6,
+    transform: [{ scale: 1.075 }],
+    backgroundColor: "rgba(22, 22, 22, 0.4)",
   },
   listItemContainer: {
     flexDirection: "row",

@@ -29,7 +29,7 @@ const DiscoverScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.screenContainer}>
-      <View>
+      <View style={styles.searchContainer}>
         <TextInput
           value={searchTerm}
           onChangeText={(text) => setSearchTerm(text)}
