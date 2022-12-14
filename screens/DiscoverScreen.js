@@ -47,21 +47,25 @@ const DiscoverScreen = ({ navigation }) => {
           title={"Song"}
           currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Song")}
+          url={require("../assets/songs.jpeg")}
         />
         <FilterBox
           title={"Movie"}
           currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Movie")}
+          url={require("../assets/movies.webp")}
         />
         <FilterBox
           title={"Album"}
           currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Album")}
+          url={require("../assets/album.jpg")}
         />
         <FilterBox
           title={"Podcast"}
           currentFilter={currentFilter}
           onPress={() => setCurrentFilter("Podcast")}
+          url={require("../assets/podcast.webp")}
         />
       </View>
     </SafeAreaView>

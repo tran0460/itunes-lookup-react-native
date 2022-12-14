@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 16,
     borderRadius: 8,
+    overflow: "hidden",
   },
   filterContainer: {
     flexDirection: "row",

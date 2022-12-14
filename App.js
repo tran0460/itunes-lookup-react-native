@@ -48,6 +48,7 @@ export default function App() {
           <Tab.Screen
             name="Home"
             options={{
+              tabBarActiveTintColor: "#222222",
               tabBarIcon: ({ focused }) =>
                 focused ? <HouseFillIcon /> : <HouseIcon />,
             }}
@@ -56,6 +57,7 @@ export default function App() {
           <Tab.Screen
             name="Discover"
             options={{
+              tabBarActiveTintColor: "#222222",
               tabBarIcon: ({ focused }) =>
                 focused ? <CompassFill /> : <Compass />,
             }}
