@@ -22,12 +22,6 @@ import * as SplashScreen from "expo-splash-screen";
 
 const Tab = createBottomTabNavigator();
 
-// TODO
-
-// - Fix status bar color
-// - Style details page more
-// - Hide preview butotn for details screen
-
 // Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
   const [searchResults, setSearchResults] = useState([]);
