@@ -8,7 +8,9 @@ const HorizontalList = ({ data, renderItem, title }) => {
       <Text style={styles.title}>{title}</Text>
       <FlatList
         horizontal
-        keyExtractor={({ item, index }) => Date.now() + index}
+        keyExtractor={(item, index) => {
+          return index;
+        }}
         style={styles.horizontalList}
         data={data}
         renderItem={renderItem}
