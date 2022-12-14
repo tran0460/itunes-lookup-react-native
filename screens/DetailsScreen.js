@@ -17,6 +17,7 @@ const DetailsScreen = () => {
     "100x100bb",
     "600x600bb"
   );
+  console.log(currentItem);
 
   const createAppName = () => {
     if (currentItem.kind === "podcast") return "Podcasts";
@@ -27,22 +28,18 @@ const DetailsScreen = () => {
     <View style={styles.screenContainer}>
       <View style={styles.detailsContent}>
         <Image style={styles.carddetails} source={{ uri: upScaledImage600 }} />
-
-        <Text style={styles.textdetails}>{currentItem.artistName}</Text>
-
-        <Text style={styles.textdetails}>
+        <Text style={styles.cardTitle}>
           {currentItem.collectionType === "Album"
             ? currentItem.collectionName
             : currentItem.trackName}
         </Text>
-
+        <Text style={styles.cardArtist}>{currentItem.artistName}</Text>
         <Text>${currentItem.collectionPrice}</Text>
       </View>
       <View style={styles.buttonsContainer}>
         <TouchableOpacity
           style={[styles.preview, styles.shadow]}
-          onPress={() => Linking.openURL(currentItem.previewUrl)}
-        >
+          onPress={() => Linking.openURL(currentItem.previewUrl)}>
           <Text style={styles.buttonText}> Open preview in browser </Text>
         </TouchableOpacity>
 
@@ -64,8 +61,7 @@ const DetailsScreen = () => {
             return Linking.openURL(
               `music${currentItem.trackViewUrl.replace("https", "")}`
             );
-          }}
-        >
+          }}>
           <Text style={styles.buttonText}>Open in {createAppName()} </Text>
         </TouchableOpacity>
       </View>

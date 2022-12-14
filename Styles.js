@@ -109,6 +109,7 @@ export const styles = StyleSheet.create({
   carddetails: {
     width: "40%",
     height: 200,
+    marginBottom: 15,
   },
   detailscontainer: {
     display: "flex",
@@ -117,9 +118,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginTop: 30,
   },
-  textdetails: {
-    marginTop: 20,
+  cardTitle: {
     marginBottom: 10,
+    fontSize: 25,
+  },
+  cardArtist: {
+    marginBottom: 10,
+    fontSize: 15,
   },
   preview: {
     borderRadius: 8, // border-radius: 8

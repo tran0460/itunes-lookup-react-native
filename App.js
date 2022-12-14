@@ -16,8 +16,6 @@ import HomeNavigator from "./Navigators/HomeNavigator";
  * react-native-safe-area-context
  * react-native-svg
  * expo-splash-screen
- * expo-speech
- * expo-av
  * expo-linking
  */
 
@@ -25,7 +23,9 @@ const Tab = createBottomTabNavigator();
 
 // TODO
 
-// - After fetching data, set data using setSearchResults in DiscoverScreen.js
+// - Fix status bar color
+// - Style details page more
+// - Hide preview butotn for details screen
 
 // Api reference: https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/Searching.html#//apple_ref/doc/uid/TP40017632-CH5-SW1
 export default function App() {
@@ -39,14 +39,12 @@ export default function App() {
         setSearchResults,
         currentItem,
         setCurrentItem,
-      }}
-    >
+      }}>
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
             headerShown: false,
-          }}
-        >
+          }}>
           <Tab.Screen
             name="Home"
             options={{
