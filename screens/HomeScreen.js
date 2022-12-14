@@ -65,15 +65,15 @@ const HomeScreen = ({ navigation }) => {
     [moviesData]
   );
   const renderSongsItem = useCallback(
-    ({ item }) => {
+    ({ item, index }) => {
       return (
         <TouchableOpacity
+          key={Date.now() + index}
           onPress={() => {
             setCurrentItem(item);
             navigation.navigate("DetailsScreen");
-          }}
-        >
-          <ListItem data={item} key={item.trackName} />
+          }}>
+          <ListItem data={item} key={Date.now() + index} />
         </TouchableOpacity>
       );
     },
@@ -101,7 +101,7 @@ const HomeScreen = ({ navigation }) => {
           navigation={navigation}
         />
         <Text style={styles.title}>Songs</Text>
-        {songsData.map((item) => renderSongsItem({ item }))}
+        {songsData.map((item, index) => renderSongsItem({ item, index }))}
       </SafeAreaView>
     </ScrollView>
   );

@@ -11,6 +11,7 @@ import Compass from "./components/icons/Compass";
 import CompassFill from "./components/icons/CompassFill";
 import HomeNavigator from "./Navigators/HomeNavigator";
 
+import * as SplashScreen from "expo-splash-screen";
 /**
  * EXPO PACKAGES:
  * react-native-safe-area-context
@@ -32,6 +33,8 @@ export default function App() {
   const [searchResults, setSearchResults] = useState([]);
   const [currentItem, setCurrentItem] = useState({});
 
+  SplashScreen.preventAutoHideAsync();
+  setTimeout(SplashScreen.hideAsync, 2000);
   return (
     <AppContext.Provider
       value={{
