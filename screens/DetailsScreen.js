@@ -17,7 +17,6 @@ const DetailsScreen = () => {
     "100x100bb",
     "600x600bb"
   );
-  console.log(currentItem);
 
   const createAppName = () => {
     if (currentItem.kind === "podcast") return "Podcasts";
@@ -35,7 +34,7 @@ const DetailsScreen = () => {
         </Text>
         <Text style={styles.cardArtist}>{currentItem.artistName}</Text>
         <Text style={styles.cardPrice}>
-          {currentItem.collectionPrice === 0
+          {!currentItem.collectionPrice || currentItem.collectionPrice === 0
             ? "Free"
             : `$${currentItem.collectionPrice}`}
         </Text>

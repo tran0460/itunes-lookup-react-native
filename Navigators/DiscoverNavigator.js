@@ -25,7 +25,14 @@ const DiscoverNavigator = () => {
           headerBackTitle: "Back",
         })}
       />
-      <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+      <Stack.Screen
+        name="DetailsScreen"
+        component={DetailsScreen}
+        options={{
+          title: "Details",
+          headerBackTitle: "Home",
+        }}
+      />
     </Stack.Navigator>
   );
 };

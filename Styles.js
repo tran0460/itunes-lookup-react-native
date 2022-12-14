@@ -64,7 +64,7 @@ export const styles = StyleSheet.create({
     width: "80%",
   },
   listItemName: {
-    fontSize: 20,
+    fontSize: 17,
     flexGrow: 2,
     marginBottom: 8,
   },
@@ -127,6 +127,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     fontSize: 17.5,
     color: "#4d4d4d",
+    textAlign: "center",
   },
   cardPrice: {
     fontSize: 14,

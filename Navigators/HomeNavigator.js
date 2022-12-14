@@ -20,7 +20,7 @@ const HomeNavigator = () => {
         component={DetailsScreen}
         options={{
           title: "Details",
-          headerBackTitle: "Homegit",
+          headerBackTitle: "Home",
         }}
       />
     </Stack.Navigator>

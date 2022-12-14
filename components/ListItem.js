@@ -12,7 +12,7 @@ const ListItem = ({ data }) => {
       />
       <View style={styles.listItemContent}>
         <Text numberOfLines={2} style={styles.listItemName}>
-          {data.trackName}
+          {data.trackName ? data.trackName : data.collectionName}
         </Text>
         <Text numberOfLines={1} style={styles.listItemAuthor}>
           {data.artistName}
